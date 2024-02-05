@@ -3,15 +3,30 @@ import { useState } from "react";
 export default function Choice() {
   const [yesSize, setYesSize] = useState(25);
   const [noSize, setNoSize] = useState(25);
+  const [nClick, setNClick] = useState(0);
 
+  const zhananyulu = [
+    "No 🥀",
+    "Are you sure? 🥺",
+    "I'm gonna cry 🥺",
+    "I'm really crying 🥹",
+    "You see my tear? 🥹",
+    "Babe pls!! 🥹",
+    "I dream about you every night 🥹",
+    "You are yin to my yang 🥹",
+    "I know you love me 🥹",
+    "I can't live without you! 🥹",
+    "Babe that hurts~~ 🥹",
+  ];
   const [display, setDisplay] = useState(false);
   const onYesClick = () => {
     setDisplay(true);
   };
 
   const onNoClick = () => {
+    setNClick(nClick + 1);
     setYesSize(yesSize + 4);
-    setNoSize(noSize - 4);
+    setNoSize(noSize - 2);
   };
   return (
     <div className="flex flex-row text-center lg:mb-10 lg:text-center mb-10">
@@ -36,7 +51,7 @@ export default function Choice() {
         )}
       </div>
       <div
-        style={{ transform: `translate(0,${(noSize - 25) * 5}px)` }}
+        style={{ transform: `translate(0,${-nClick * 20}px)` }}
         className="ml-3"
       >
         <button
@@ -49,7 +64,7 @@ export default function Choice() {
                 fontSize: noSize + "px",
               }}
             >
-              No 🥀
+              {zhananyulu[nClick]}
             </p>
           </h2>
         </button>
