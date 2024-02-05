@@ -34,7 +34,7 @@ export default function Choice() {
     <div className="flex flex-row text-center lg:mb-10 lg:text-center mb-10">
       <div className="">
         <button
-          className={`bg-emerald-400 hover:border-emerald-300/80 hover:bg-emerald-300/50 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
+          className={`bg-emerald-400 hover:border-emerald-300/90 hover:bg-emerald-300/80 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
           onClick={onYesClick}
         >
           <h2 className={"font-semibold"}>
@@ -63,7 +63,7 @@ export default function Choice() {
           className="ml-3"
         >
           <button
-            className={`bg-rose-400 hover:border-rose-300/80 hover:bg-rose-300/50 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
+            className={`bg-rose-400 hover:border-rose-300/80 hover:bg-rose-300/90 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
             onClick={onNoClick}
           >
             <h2 className="font-semibold">
