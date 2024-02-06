@@ -38,7 +38,11 @@ export default function Choice() {
           onClick={onYesClick}
         >
           <h2 className={"font-semibold"}>
-            <p style={{ fontSize: yesSize + "px" }}>Yes 🌹</p>
+            {nClick < zhananyulu.length ? (
+              <p style={{ fontSize: yesSize + "px" }}>Yes 🌹</p>
+            ) : (
+              <p style={{ fontSize: yesSize + "px" }}>What a choice Babe! 🌹</p>
+            )}
           </h2>
         </button>
 
@@ -46,11 +50,7 @@ export default function Choice() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-rose-300 h-screen w-screen z-[10]">
             <div className="flex h-screen items-center justify-center">
               <h2 className={"text-5xl font-semibold"}>
-                {nClick < zhananyulu.length ? (
-                  <p>Yes Babe! 😘😘😘</p>
-                ) : (
-                  <p>What a choice Babe! 😘😘😘</p>
-                )}
+                <p>I love you Babe! 😘😘😘</p>
               </h2>
             </div>
           </div>
