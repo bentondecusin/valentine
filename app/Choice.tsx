@@ -33,19 +33,22 @@ export default function Choice() {
   return (
     <div className="flex flex-row text-center lg:mb-10 lg:text-center mb-10">
       <div className="">
-        <button
-          className={`bg-emerald-400 hover:border-emerald-300/90 hover:bg-emerald-300/80 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
-          onClick={onYesClick}
-        >
-          <h2 className={"font-semibold"}>
-            {nClick < zhananyulu.length ? (
-              <p style={{ fontSize: yesSize + "px" }}>Yes 🌹</p>
-            ) : (
-              <p style={{ fontSize: yesSize + "px" }}>What a choice Babe! 🌹</p>
-            )}
-          </h2>
-        </button>
-
+        {!display && (
+          <button
+            className={`bg-emerald-400 hover:border-emerald-300/90 hover:bg-emerald-300/80 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
+            onClick={onYesClick}
+          >
+            <h2 className={"font-semibold"}>
+              {nClick < zhananyulu.length ? (
+                <p style={{ fontSize: yesSize + "px" }}>Yes 🌹</p>
+              ) : (
+                <p style={{ fontSize: yesSize + "px" }}>
+                  What a choice Babe! 🌹
+                </p>
+              )}
+            </h2>
+          </button>
+        )}
         {display && (
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-rose-300 h-screen w-screen z-[10]">
             <div className="flex h-screen items-center justify-center">
@@ -57,7 +60,7 @@ export default function Choice() {
         )}
       </div>
 
-      {nClick < zhananyulu.length && (
+      {!display && nClick < zhananyulu.length && (
         <div
           style={{ transform: `translate(0,${-nClick * 15}px)` }}
           className="ml-3"
