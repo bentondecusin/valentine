@@ -7,16 +7,15 @@ export default function Choice() {
 
   const zhananyulu = [
     "No 🥀🥀🥀",
-    "You must've misclicked 🤨",
-    "You are the CSS to my HTML!! 🥹",
-    "Are you FIFO? Bc you're a Queue<T>!",
-    "Are you https?? Bc without you I'm just ://",
-    "Are you a double? Bc you are floating in my mind",
-    "Are you a function? Let me call you",
-    "Are you an exception? Let me catch you",
-    "We can merge without conflicts!",
-    "Let me inject my SQL \n into your application layer.",
-    "Add my heart \n bc I'm ready to commit",
+    "Must've misclicked 🤨",
+    "Ur the CSS to my HTML!! 🥹",
+    "We can merge without conflicts🌹",
+    "Ru a function? Lemme call u🌹",
+    "Ru an exception? Lemme catch u 🌹",
+    "Ru FIFO? Bc you're a Queue<T>🌹!",
+    "Ru https?? Bc without u I'm just ://",
+    "Ru a double? Bc ur floating in my mind",
+    "Lemme inject my SQL \n into ur application layer.",
     "No",
   ];
   const [display, setDisplay] = useState(false);
@@ -40,7 +39,7 @@ export default function Choice() {
             onClick={onYesClick}
           >
             <h2 className={"font-semibold"}>
-              {nClick < zhananyulu.length ? (
+              {nClick + 1 < zhananyulu.length ? (
                 <p style={{ fontSize: yesSize + "px" }}>Yes 🌹</p>
               ) : (
                 <p>Yes 🌹 (You know you can always say no)</p>
@@ -60,28 +59,28 @@ export default function Choice() {
       </div>
 
       {!display && nClick < zhananyulu.length && (
-        <div className="mt-20">
+        <div className="mt-10">
           <button
             className={`bg-rose-400 hover:border-rose-300/80 hover:bg-rose-300/90 rounded-lg border border-transparent transition-transform hover:translate-y-1 motion-reduce:transform-none max-w-3xs`}
             onClick={onNoClick}
             style={
               nClick == zhananyulu.length - 1
                 ? {
-                    padding: 4 / (nClick + 1) + "px",
+                    padding: "1rem 4px",
                     transform: `translate(0, -1500%)`,
                   }
                 : nClick >= 1
                 ? {
-                    padding: 4 / nClick + "px",
+                    padding: 16 / (nClick + 1) + "px " + 4 / nClick + "px",
                     fontSize: 12 - 1 * nClick + "px",
 
-                    transform: `translate(${100 -200 * Math.random()}%, ${
+                    transform: `translate(${100 - 200 * Math.random()}%, ${
                       -150 + 400 * Math.random()
                     }%)`,
                   }
                 : {
                     fontSize: "25px",
-                    padding: "4px",
+                    padding: "1rem 4px",
                   }
             }
           >
