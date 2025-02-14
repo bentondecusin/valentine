@@ -7,17 +7,16 @@ export default function Choice() {
 
   const zhananyulu = [
     "No 🥀",
-    "Are you sure? 🥺",
-    "I'm gonna cry 🥺",
-    "I'm really crying 🥹",
-    "You see my tear? 🥹",
-    "Babe pls!! 🥹",
-    "I dream about you every night 🥹",
-    "You are yin to my yang 🥹",
-    "I know you love me 🥹",
-    "I can't live without you! 🥹",
-    "Babe that hurts~~ 🥹",
-    "wwwwwwwww~~ 🥹",
+    "You must've misclicked 🤨",
+    "You are the CSS to my HTML!! 🥹",
+    "Are you FIFO? Bc you're a Queue<T>!",
+    "Are you https?? Bc without you I'm just ://",
+    "Are you a double? Bc you are floating in my mind",
+    "Are you a function? Let me call you",
+    "Are you an exception? Let me catch you",
+    "We can merge, without conflicts!",
+    "Let me inject my SQL into your application layer.",
+    "Add my heart because I'm ready to commit",
   ];
   const [display, setDisplay] = useState(false);
   const onYesClick = () => {
@@ -26,12 +25,12 @@ export default function Choice() {
 
   const onNoClick = () => {
     setNClick(nClick + 1);
-    setYesSize(yesSize + 4);
-    if (nClick > 4) setNoSize(noSize - 4);
+    setYesSize(yesSize + 2);
+    if (nClick == zhananyulu.length) setNoSize(0);
     else setNoSize(noSize - 1);
   };
   return (
-    <div className="flex flex-row text-center lg:mb-10 lg:text-center mb-10">
+    <div className="flex flex-col justify-center text-center lg:mb-10 lg:text-center mb-10">
       <div className="">
         {!display && (
           <button
@@ -42,9 +41,7 @@ export default function Choice() {
               {nClick < zhananyulu.length ? (
                 <p style={{ fontSize: yesSize + "px" }}>Yes 🌹</p>
               ) : (
-                <p style={{ fontSize: yesSize + "px" }}>
-                  What a choice Babe! 🌹
-                </p>
+                <p>Yes 🌹 (You know you can always say no)</p>
               )}
             </h2>
           </button>
@@ -53,7 +50,7 @@ export default function Choice() {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-rose-300 h-screen w-screen z-[10]">
             <div className="flex h-screen items-center justify-center">
               <h2 className={"text-5xl font-semibold"}>
-                <p>I love you Babe! 😘😘😘</p>
+                <p>Lysm 😘😘😘</p>
               </h2>
             </div>
           </div>
@@ -62,7 +59,7 @@ export default function Choice() {
 
       {!display && nClick < zhananyulu.length && (
         <div
-          style={{ transform: `translate(0,${-nClick * 15}px)` }}
+          style={{ transform: `translate(0, ${nClick * 30}px)` }}
           className="ml-3"
         >
           <button
