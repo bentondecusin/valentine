@@ -6,7 +6,7 @@ export default function Choice() {
   const [nClick, setNClick] = useState(0);
 
   const zhananyulu = [
-    "No 🥀",
+    "No 🥀🥀🥀",
     "You must've misclicked 🤨",
     "You are the CSS to my HTML!! 🥹",
     "Are you FIFO? Bc you're a Queue<T>!",
@@ -14,9 +14,10 @@ export default function Choice() {
     "Are you a double? Bc you are floating in my mind",
     "Are you a function? Let me call you",
     "Are you an exception? Let me catch you",
-    "We can merge, without conflicts!",
-    "Let me inject my SQL into your application layer.",
-    "Add my heart because I'm ready to commit",
+    "We can merge without conflicts!",
+    "Let me inject my SQL \n into your application layer.",
+    "Add my heart \n bc I'm ready to commit",
+    "No",
   ];
   const [display, setDisplay] = useState(false);
   const onYesClick = () => {
@@ -26,6 +27,7 @@ export default function Choice() {
   const onNoClick = () => {
     setNClick(nClick + 1);
     setYesSize(yesSize + 2);
+    if (nClick == 1) setNoSize(5);
     if (nClick == zhananyulu.length) setNoSize(0);
     else setNoSize(noSize - 1);
   };
@@ -34,7 +36,7 @@ export default function Choice() {
       <div className="">
         {!display && (
           <button
-            className={`bg-emerald-400 hover:border-emerald-300/90 hover:bg-emerald-300/80 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
+            className={`bg-emerald-400 hover:border-emerald-300/90 hover:bg-emerald-300/80 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none `}
             onClick={onYesClick}
           >
             <h2 className={"font-semibold"}>
@@ -58,22 +60,33 @@ export default function Choice() {
       </div>
 
       {!display && nClick < zhananyulu.length && (
-        <div
-          style={{ transform: `translate(0, ${nClick * 30}px)` }}
-          className="ml-3"
-        >
+        <div className="mt-20">
           <button
-            className={`bg-rose-400 hover:border-rose-300/80 hover:bg-rose-300/90 rounded-lg border border-transparent px-5 py-4 transition-transform hover:translate-y-1 motion-reduce:transform-none`}
+            className={`bg-rose-400 hover:border-rose-300/80 hover:bg-rose-300/90 rounded-lg border border-transparent transition-transform hover:translate-y-1 motion-reduce:transform-none max-w-3xs`}
             onClick={onNoClick}
+            style={
+              nClick == zhananyulu.length - 1
+                ? {
+                    padding: 4 / (nClick + 1) + "px",
+                    transform: `translate(0, -1500%)`,
+                  }
+                : nClick >= 1
+                ? {
+                    padding: 4 / nClick + "px",
+                    fontSize: 12 - 1 * nClick + "px",
+
+                    transform: `translate(${100 -200 * Math.random()}%, ${
+                      -150 + 400 * Math.random()
+                    }%)`,
+                  }
+                : {
+                    fontSize: "25px",
+                    padding: "4px",
+                  }
+            }
           >
             <h2 className="font-semibold">
-              <p
-                style={{
-                  fontSize: noSize + "px",
-                }}
-              >
-                {zhananyulu[nClick]}
-              </p>
+              <p>{zhananyulu[nClick]}</p>
             </h2>
           </button>
         </div>
